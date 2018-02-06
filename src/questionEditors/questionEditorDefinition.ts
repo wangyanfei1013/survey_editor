@@ -159,6 +159,7 @@ export class SurveyQuestionEditorDefinition {
     survey: {
       properties: [
         "title",
+        "description",
         "showTitle",
         "locale",
         "mode",
@@ -200,9 +201,12 @@ export class SurveyQuestionEditorDefinition {
         { name: "maxTimeToFinish", tab: "timer" },
         { name: "maxTimeToFinishPage", tab: "timer" },
         { name: "showTimerPanel", tab: "timer", category: "check" },
-        { name: "showTimerPanelMode", tab: "timer", category: "check" }
+        { name: "showTimerPanelMode", tab: "timer", category: "check" },
+        { name: "wordTemplateContent", tab: "wordTemplate" },
+        { name: "wordTemplateLabel", tab: "wordTemplate"  }
       ],
       tabs: [
+        { name: "wordTemplate", index: 5 },
         { name: "navigation", index: 10 },
         { name: "question", index: 20 },
         { name: "completedHtml", index: 70 },

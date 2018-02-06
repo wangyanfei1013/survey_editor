@@ -124,7 +124,7 @@ export class SurveyPropertyModalEditor extends SurveyPropertyEditorBase {
     };
   }
   public setup() {
-    this.showDisplayName = false;
+    this.showDisplayName = true;
     this.beforeShowModal();
   }
   public get isModal(): boolean {

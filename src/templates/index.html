@@ -25,7 +25,7 @@
                 </div>
                 <!-- /ko  -->
             </div>
-            <div class="col-xs-11 svd_editors" data-bind="css: {'col-lg-7 col-md-7 col-sm-8': koShowPropertyGrid, 'col-lg-10 col-md-10 col-sm-11': !koShowPropertyGrid()}">
+            <div class="col-xs-14 svd_editors" data-bind="css: {'col-lg-10 col-md-10 col-sm-11': koShowPropertyGrid, 'col-lg-13 col-md-13 col-sm-14': !koShowPropertyGrid()}">
                 <div class="svd_toolbar">
                     <!-- ko foreach: toolbarItems -->
                     <span class="svd_action" data-bind="css: $data.css, visible: visible, attr: { id: id }">
@@ -39,7 +39,7 @@
                     <div id="surveyjs"></div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs svd_properties" data-bind="visible: koShowPropertyGrid">
+            <!-- <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs svd_properties" data-bind="visible: koShowPropertyGrid">
                 <div class="svd_object_selector">
                     <div class="svd_custom_select">
                         <select id="objectSelector" class="form-control" data-bind="options: koObjects, optionsText: 'text', value: koSelectedObject"></select>
@@ -49,7 +49,7 @@
                 <div class="svd_object_editor" data-bind="style: {height: koDesignerHeight}">
                     <div data-bind="template: { name: 'objecteditor', data: selectedObjectEditor }"></div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div data-bind="visible: koViewType() == 'editor'">

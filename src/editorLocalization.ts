@@ -181,6 +181,7 @@ export var defaultStrings = {
     qEditorTitle: "Edit question: {0}",
 
     //survey
+    description:'description',
     showTitle: "Show/hide title",
     locale: "Default language",
     mode: "Mode (edit/read only)",
@@ -220,9 +221,11 @@ export var defaultStrings = {
     panelAddText: "Adding panel text",
     panelRemoveText: "Removing panel text",
     isSinglePage: "Show all elements on one page",
-
+    wordTemplateContent:'wordTemplateContent',
+    wordTemplateLabel:'wordTemplateLabel',
     tabs: {
       general: "General",
+      wordTemplate:'wordTemplate',
       fileOptions: "Options",
       html: "Html Editor",
       columns: "Columns",

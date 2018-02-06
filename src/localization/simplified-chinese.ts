@@ -3,8 +3,9 @@ import { editorLocalization } from "../editorLocalization";
 var simplifiedChineseTranslation = {
   // strings for survey templates
   survey: {
+    edit: "编辑",
     dropQuestion: "请将问题放置于此",
-    copy: "复制",
+    Copy: "复制",
     addToToolbox: "添加到工具箱",
     deletePanel: "删除面板",
     deleteQuestion: "删除题目"
@@ -27,7 +28,11 @@ var simplifiedChineseTranslation = {
   },
   // strings for editor
   ed: {
+    Survey: "问卷",
+    editSurvey: "编辑问卷",
     addNewPage: "添加新页面",
+    deletePage: "删除页面",
+    editPage: "编辑页面",
     newPageName: "页面",
     newQuestionName: "问题",
     newPanelName: "面板",
@@ -73,7 +78,7 @@ var simplifiedChineseTranslation = {
     itemEdit: "编辑选项: {0}",
     hasOther: "可添加其他答案?",
     name: "题目名",
-    title: "题目文本",
+    title: "标题",
     cellType: "单元格类型",
     colCount: "列数",
     choicesOrder: "设置选项顺序",
@@ -94,9 +99,60 @@ var simplifiedChineseTranslation = {
     maxRateDescription: "最大值提示",
     inputType: "文本框类型",
     optionsCaption: "下拉框提示语",
+
+    surveyEditorTitle: "编辑问卷",
     qEditorTitle: "编辑问题: {0}",
+    description:'描述',
+
+
+   //survey
+    showTitle: "是否显示标题",
+    locale: "默认语言",
+    mode: "模式 (edit/read only)",
+    clearInvisibleValues: "Clear invisible values",
+    cookieName: "Cookie name (to disable run survey two times locally)",
+    sendResultOnPageNext: "Send survey results on page next",
+    storeOthersAsComment: "Store 'others' value in separate field",
+    showPageTitles: "显示页数文本",
+    showPageNumbers: "显示页数",
+    pagePrevText: "上一页按钮文本",
+    pageNextText: "下一页按钮文本",
+    completeText: "完成问卷按钮文本",
+    startSurveyText: "开始问卷按钮文本",
+    showNavigationButtons: "Show navigation buttons (default navigation)",
+    showPrevButton: "Show previous button (user may return on previous page)",
+    firstPageIsStarted: "The first page in the survey is a started page.",
+    showCompletedPage: "显示完成页面",
+    goNextPageAutomatic:"自动跳转到下一页",
+    showProgressBar: "显示进度条",
+    questionTitleLocation: "Question title location",
+    requiredText: "必填问题标示",
+    questionStartIndex: "Question start index (1, 2 or 'A', 'a')",
+    showQuestionNumbers: "显示问题个数",
+    questionTitleTemplate:
+      "Question title template, default is: '{no}. {require} {title}'",
+    questionErrorLocation: "问题错误提示位置",
+    focusFirstQuestionAutomatic: "Focus first question on changing the page",
+    questionsOrder: "Elements order on the page",
+    maxTimeToFinish: "Maximum time to finish the survey",
+    maxTimeToFinishPage: "Maximum time to finish a page in the survey",
+    showTimerPanel: "Show timer panel",
+    showTimerPanelMode: "Show timer panel mode",
+    renderMode: "Render mode",
+    allowAddPanel: "Allow adding a panel",
+    allowRemovePanel: "Allow removing the panel",
+    panelAddText: "Adding panel text",
+    panelRemoveText: "Removing panel text",
+    isSinglePage: "在一页上显示所有问题",
+    wordTemplateContent:'模版内容',
+    wordTemplateLabel:'学生姓名',
+   
+
+
+
     tabs: {
       general: "通用项",
+      wordTemplate:'话术模版',
       fileOptions: "选项",
       html: "HTML 编辑器",
       columns: "设置列",
@@ -107,7 +163,9 @@ var simplifiedChineseTranslation = {
       choicesByUrl: "通过 URL 导入选项",
       matrixChoices: "默认选项",
       multipleTextItems: "文本输入",
-      validators: "校验规则"
+      validators: "校验规则",
+      navigation: "导航",
+      question: "问题",
     },
     editProperty: "编辑属性: '{0}'",
     items: "[ 项目数量: {0} ]",
