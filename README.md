@@ -30,8 +30,8 @@ To build library yourself:
 
  1. **Clone the repo from GitHub**  
 	```
-	git clone https://github.com/surveyjs/editor.git
-	cd surveyjs.editor
+	git clone hhttp://192.168.6.82:9099/dc-web/survey_editor.git
+	cd survey_editor
 	```
 
  2. **Acquire build dependencies.** Make sure you have [Node.js](http://nodejs.org/) installed on your workstation. 
