@@ -15,6 +15,7 @@
 
     <script src="../package/surveyeditor.js"></script>
     <link rel="stylesheet" href="../package/surveyeditor.css" />
+
 </head>
 
 <body>
@@ -29,13 +30,9 @@
                 name: "description:text"
             });
             Survey.JsonObject.metaData.addProperty("survey", {
-                name: "wordTemplateContent:text"
-            });
-            Survey.JsonObject.metaData.addProperty("survey", {
-                name: "wordTemplateLabel:boolean",
+                name: "wordTemplateContent:wordtemplate",
 
             });
-
             console.log(Survey.JsonObject.metaData)
 
 
@@ -49,23 +46,65 @@
 
 
             editor.onCanShowProperty.add(function(sender, options) {
+                console.log(options.obj.getType())
                 if (options.obj.getType() == "survey") {
                     var allowSurveyProperties = ["title", 'description', "isSinglePage", "completeText", "showPageNumbers", "showPageTitles", 'showProgressBar', 'showQuestionNumbers', 'startSurveyText', 'requiredText', 'pagePrevText',
                         'pageNextText', 'goNextPageAutomatic', 'questionErrorLocation', 'wordTemplateContent', 'wordTemplateLabel'
                     ];
                     var propName = options.property.name;
-                    console.log(propName)
+
                     var canShow = allowSurveyProperties.indexOf(propName) > -1;
+                    options.canShow = canShow;
+                } else if (options.obj.getType() == "radiogroup" || options.obj.getType() == "checkbox") {
+                    console.log(options.property.name)
+                    var forbiddenGroupProperties = ['choicesByUrl']
+                    var propName = options.property.name;
+                    var canShow = forbiddenGroupProperties.indexOf(propName) < 0;
                     options.canShow = canShow;
                 }
 
+            });
+
+
+
+            editor.onPropertyValueChanging.add(function(sender, options) {
+                console.log(options.propertyName)
+                console.log(options)
+                    //console.log(event.target.parentNode.parentNode.parentNode.parentNode.previousElementSibling)
+
+                if (options.propertyName != "wordTemplateLabel") return;
+                if (options.obj) {
+                    let wordTemplateContainerDom = event.target.parentNode.parentNode.parentNode.parentNode.previousElementSibling
+                    let wordTemplateDom = wordTemplateContainerDom.getElementsByTagName('textarea')[0]
+                    let text = wordTemplateDom.value
+                    if (options.value) {
+                        wordTemplateDom.value = text + '{stuName}'
+                    } else {
+
+                        if (text.indexOf('{stuName}') > -1) {
+                            wordTemplateDom.value = text.replace('{stuName}', '')
+                        }
+
+                    }
+                    // var choices = [];
+                    // choices.push(options.value + " 1");
+                    // choices.push(options.value + " 2");
+                    // options.obj.targetFieldEditor.koChoices(choices);
+                }
             });
             //editor.surveyId = '5af48e08-a0a5-44a5-83f4-1c90e8e98de1';
             //editor.surveyPostId = '3ce10f8b-2d8a-4ca2-a110-2994b9e697a1';
             editor.saveSurveyFunc = function(saveNo, callback) {
                 alert('ok');
-
+                console.log(saveNo)
                 callback(saveNo, true)
+                    //  console.log(modelData.Id)
+                console.log(editor.text)
+                    //         $.ajax({
+                    //     url: "/api/MySurveys/changeJson",
+                    //     type: "POST",
+                    //     data: { Id: modelData.Id, Json : editor.text }
+                    // });
             };
 
             //editor.loadSurvey("b2b56b2c-ad9e-4951-8f0e-c246d6b6a52a");

@@ -202,8 +202,8 @@ export class SurveyQuestionEditorDefinition {
         { name: "maxTimeToFinishPage", tab: "timer" },
         { name: "showTimerPanel", tab: "timer", category: "check" },
         { name: "showTimerPanelMode", tab: "timer", category: "check" },
-        { name: "wordTemplateContent", tab: "wordTemplate" },
-        { name: "wordTemplateLabel", tab: "wordTemplate"  }
+        { name: "wordTemplateContent", tab: "wordTemplate" }
+       
       ],
       tabs: [
         { name: "wordTemplate", index: 5 },

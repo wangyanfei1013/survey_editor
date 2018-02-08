@@ -1,63 +1,62 @@
 .sjs-cb-wrapper {
-  display: inline-block;
-  margin-right: 1em;
+    display: inline-block;
+    margin-right: 1em;
 }
 
 .sjs-cb-container {
-  position: relative;
-  height: 1em;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  input {
-    position: absolute;
-    opacity: 0;
-  }
+    position: relative;
+    height: 1em;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input {
+        position: absolute;
+        opacity: 0;
+    }
 }
 
 .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 22px;
-  width: 22px;
-  background-color: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
 }
 
-.sjs-cb-container:hover input ~ .checkmark {
-  background-color: #ccc;
+.sjs-cb-container:hover input~.checkmark {
+    background-color: #ccc;
 }
 
-.sjs-cb-container input:checked ~ .checkmark {
-  background-color: #1ab394;
+.sjs-cb-container input:checked~.checkmark {
+    background-color: #f85415;
 }
 
 .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+    content: "";
+    position: absolute;
+    display: none;
 }
 
-.sjs-cb-container input:checked ~ .checkmark:after {
-  display: block;
+.sjs-cb-container input:checked~.checkmark:after {
+    display: block;
 }
 
 .sjs-cb-container .checkmark:after {
-  left: 8px;
-  top: 5px;
-  width: 7px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+    left: 8px;
+    top: 5px;
+    width: 7px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .sjs-cb-label {
-  line-height: 1.75em;
-  margin-left: 35px;
+    line-height: 1.75em;
+    margin-left: 35px;
 }

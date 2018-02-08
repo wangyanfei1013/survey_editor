@@ -222,7 +222,7 @@ export var defaultStrings = {
     panelRemoveText: "Removing panel text",
     isSinglePage: "Show all elements on one page",
     wordTemplateContent:'wordTemplateContent',
-    wordTemplateLabel:'wordTemplateLabel',
+    
     tabs: {
       general: "General",
       wordTemplate:'wordTemplate',

@@ -1,0 +1,19 @@
+<script type="text/html" id="propertyeditor-wordtemplate">
+    <!-- ko template: { name: 'propertyeditor-modal', data: $data } -->
+    <!-- /ko -->
+</script>
+
+<script type="text/html" id="propertyeditorcontent-wordtemplate">
+    <div class="propertyeditor-wordtemplate">
+        <textarea class="form-control" data-bind="value:koValue, disable: readOnly" style="width:100%" rows="5" autofocus="autofocus"></textarea>
+        <div class="tag-box">
+            <p style="margin-top:10px;">点击下面的标签，可在光标处添加对应的学生信息</p>
+            <div>
+                <a class="btn btn-default" href="#" role="button" data-bind="click:function () {insertStudentTag('stuName', $element); } ">学生姓名</a>
+                <a class="btn btn-default" href="#" role="button" data-bind="click:function () {insertStudentTag('stuSex', $element); } ">学生性别</a>
+                <a class="btn btn-default" href="#" role="button" data-bind="click:function () {insertStudentTag('stuAge', $element); } ">学生年龄</a>
+            </div>
+
+        </div>
+    </div>
+</script>

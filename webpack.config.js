@@ -41,7 +41,7 @@ var packagePlatformJson = {
     main: "surveyeditor.js",
     repository: {
         type: "git",
-        url: "https://github.com/surveyjs/editor.git"
+        url: "http://192.168.6.82:9099/dc-web/survey_editor.git"
     },
     engines: {
         node: ">=0.10.0"

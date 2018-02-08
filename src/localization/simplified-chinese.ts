@@ -36,7 +36,7 @@ var simplifiedChineseTranslation = {
     newPageName: "页面",
     newQuestionName: "问题",
     newPanelName: "面板",
-    testSurvey: "测试问卷",
+    testSurvey: "预览问卷",
     testSurveyAgain: "再次测试问卷",
     testSurveyWidth: "问卷宽度: ",
     embedSurvey: "将问卷嵌入网页",
@@ -145,7 +145,7 @@ var simplifiedChineseTranslation = {
     panelRemoveText: "Removing panel text",
     isSinglePage: "在一页上显示所有问题",
     wordTemplateContent:'模版内容',
-    wordTemplateLabel:'学生姓名',
+    
    
 
 
@@ -158,7 +158,7 @@ var simplifiedChineseTranslation = {
       columns: "设置列",
       rows: "设置行",
       choices: "设置选项",
-      visibleIf: "设置可见条件",
+      visibleIf: "逻辑设置",
       rateValues: "设置评分值",
       choicesByUrl: "通过 URL 导入选项",
       matrixChoices: "默认选项",

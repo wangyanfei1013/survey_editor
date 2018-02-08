@@ -5,16 +5,33 @@
 
 <script type="text/html" id="propertyeditorcontent-condition">
     <div class="propertyeditor-condition">
-        <textarea data-bind="value:koValue" rows="8" autofocus="autofocus"></textarea>
+        <!-- <textarea  data-bind="value:koValue" rows="8" autofocus="autofocus"></textarea> -->
         <!-- <div class="assistant">
             <div class="assistant-title" data-bind="text:$root.getLocString('pe.assistantTitle')"></div>
             <div class="assistant-content" data-bind="foreach:availableQuestions">
-                <div class="assistant-item" data-bind=" text:name, click:function () { $parent.insertQuestion($data, $element); } "></div>
+                <div class="assistant-item" data-bind=" text:name, click:function () {$parent.insertQuestion($data, $element); } "></div>
             </div>
+
         </div> -->
-        <span data-bind="text:$root.getLocString('pe.conditionHelp')" style="white-space:normal "></span>
+        <input type="hidden" data-bind="value:koValue" rows="8" autofocus="autofocus" />
+        <label>关联题目：</label>
+        <div class="svd_custom_select svd_property_editor_dropdown">
+            <select class="form-control svd_editor_control" data-bind="options:availableQuestions,optionsText:'name',optionsValue:'selectedElementInDesignValue',value: koQuestionSelected,optionsCaption: '选择关联的题目',event:{change:function(){getItemsOfQuestion($element);}}"
+                style="width:100%"></select>
+
+        </div>
+        <div style="margin-top:10px;">
+            <p>当关联题目选择下面选项：</p>
+            <div>
+                <!-- ko foreach: questionItems -->
+                <p><input type="checkbox" data-bind="checkedValue:value,event:{change:function () { $parent.setQuestionItem($data,$element);}}" /> <label data-bind="text:text"></label></p>
+                <!-- /ko -->
+            </div>
+            <p>中的任意一个当前题目才显示</p>
+        </div>
+        <!-- <span data-bind="text:$root.getLocString('pe.conditionHelp')" style="white-space:normal "></span>
         <div>
             <a data-bind="text:$root.getLocString('pe.showMore')" target="_blank" href="https://surveyjs.io/Documentation/LibraryParameter?id=QuestionBase&parameter=visibleIf"></a>
-        </div>
+        </div> -->
     </div>
 </script>

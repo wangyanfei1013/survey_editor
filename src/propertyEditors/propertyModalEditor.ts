@@ -225,21 +225,89 @@ export class SurveyPropertyHtmlEditor extends SurveyPropertyTextEditor {
 }
 
 export class SurveyPropertyConditionEditor extends SurveyPropertyTextEditor {
+  public koQuestionSelected: any;
+  public questionItems: any;
   constructor(property: Survey.JsonObjectProperty, private _type: string) {
     super(property);
+    this.koQuestionSelected = ko.observable();
+    this.questionItems =  ko.observableArray([]);
+    
+  
   }
   public get editorType(): string {
     return this._type;
   }
   public get availableQuestions(): any[] {
+    // console.log(this.object.survey.getAllQuestions())
     return (this.object && this.object.survey.getAllQuestions()) || [];
   }
 
   public insertQuestion(question, element) {
+    // console.log(question)
     var textarea = element.parentNode.parentNode.parentNode.querySelector(
       "textarea"
     );
     insertAtCursor(textarea, "{" + question.name + "}");
+   
+  }
+
+ 
+  public getItemsOfQuestion(element){
+    this.questionItems.removeAll()
+   var choices = this.koQuestionSelected().choices || [];
+   var len = choices.length;
+
+   for(var i=0;i<len;i++){
+    this.questionItems.push(choices[i]);  
+   }
+
+   //切换问题 重置条件设置
+   var textarea = element.parentNode.parentNode.parentNode.parentNode.querySelector(
+    "input[type=hidden]"
+  );
+   textarea.value = '';
+  }
+  public setQuestionItem(data,element){
+    var textarea = element.parentNode.parentNode.parentNode.parentNode.querySelector(
+      "input[type=hidden]"
+    );
+    var visibleifContent = textarea.value;
+    var itemValue = data.value;
+    if(element.checked){
+      var delimiters = '';
+      var questionName = this.koQuestionSelected().name;
+      if(visibleifContent.indexOf('=') > -1){
+        delimiters = ' or ';
+      }
+      insertAtCursor(textarea, delimiters+'{'+questionName+'}'+"='" + itemValue + "'");
+    }else{
+      var contentSplitData = visibleifContent.split(' or ');
+      contentSplitData.forEach((val, idx, array) => {
+          if (val.indexOf(itemValue) > -1) {
+            contentSplitData.splice(idx, 1)
+            var newVisibleifContent = contentSplitData.join(' or ');
+            textarea.value = newVisibleifContent;
+        }
+      });
+
+    }
+  
+  }
+
+}
+
+export class SurveyPropertyWordtemplateEditor extends SurveyPropertyTextEditor {
+  constructor(property: Survey.JsonObjectProperty) {
+    super(property);
+  }
+  public get editorType(): string {
+    return 'wordtemplate';
+  }
+  public insertStudentTag(tagName,element){
+    var textarea = element.parentNode.parentNode.parentNode.querySelector(
+      "textarea"
+    );
+    insertAtCursor(textarea, "{" + tagName + "}");
   }
 }
 
@@ -263,3 +331,9 @@ SurveyPropertyEditorFactory.registerEditor("expression", function(
 ): SurveyPropertyEditorBase {
   return new SurveyPropertyConditionEditor(property, "expression");
 });
+//话术模版
+SurveyPropertyEditorFactory.registerEditor("wordtemplate",function(
+  property: Survey.JsonObjectProperty
+): SurveyPropertyEditorBase {
+  return new SurveyPropertyWordtemplateEditor(property);
+})
