@@ -45,18 +45,19 @@
             var editor = new SurveyEditor.SurveyEditor("editorElement", editorOptions);
 
 
+
             editor.onCanShowProperty.add(function(sender, options) {
-                console.log(options.obj.getType())
+                //  console.log(options.obj.getType())
                 if (options.obj.getType() == "survey") {
-                    var allowSurveyProperties = ["title", 'description', "isSinglePage", "completeText", "showPageNumbers", "showPageTitles", 'showProgressBar', 'showQuestionNumbers', 'startSurveyText', 'requiredText', 'pagePrevText',
-                        'pageNextText', 'goNextPageAutomatic', 'questionErrorLocation', 'wordTemplateContent', 'wordTemplateLabel'
+                    var allowSurveyProperties = ["title", 'description', "isSinglePage", "showPageNumbers", "showPageTitles", 'showQuestionNumbers', 'requiredText',
+                        'goNextPageAutomatic', 'questionErrorLocation', 'wordTemplateContent'
                     ];
                     var propName = options.property.name;
 
                     var canShow = allowSurveyProperties.indexOf(propName) > -1;
                     options.canShow = canShow;
                 } else if (options.obj.getType() == "radiogroup" || options.obj.getType() == "checkbox") {
-                    console.log(options.property.name)
+                    // console.log(options.property.name)
                     var forbiddenGroupProperties = ['choicesByUrl']
                     var propName = options.property.name;
                     var canShow = forbiddenGroupProperties.indexOf(propName) < 0;
@@ -68,9 +69,9 @@
 
 
             editor.onPropertyValueChanging.add(function(sender, options) {
-                console.log(options.propertyName)
-                console.log(options)
-                    //console.log(event.target.parentNode.parentNode.parentNode.parentNode.previousElementSibling)
+                // console.log(options.propertyName)
+                // console.log(options)
+                //console.log(event.target.parentNode.parentNode.parentNode.parentNode.previousElementSibling)
 
                 if (options.propertyName != "wordTemplateLabel") return;
                 if (options.obj) {

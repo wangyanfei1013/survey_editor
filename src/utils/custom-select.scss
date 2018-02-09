@@ -56,5 +56,7 @@ $main-color: #f85415;
         background-color: $main-color;
         background-image: url("../images/ArrowDown_34x34.svg");
         @include svg-icon();
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
 }

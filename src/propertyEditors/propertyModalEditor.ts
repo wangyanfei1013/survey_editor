@@ -238,8 +238,16 @@ export class SurveyPropertyConditionEditor extends SurveyPropertyTextEditor {
     return this._type;
   }
   public get availableQuestions(): any[] {
-    // console.log(this.object.survey.getAllQuestions())
-    return (this.object && this.object.survey.getAllQuestions()) || [];
+    //console.log(this.object.survey.getAllQuestions())
+    var questions = (this.object && this.object.survey.getAllQuestions()) || [];
+    var availableQuestions = []
+    questions.forEach((value,index)=>{
+      if(value.choices){
+        availableQuestions.push(value)
+      }
+    })
+   // console.log(availableQuestions)
+    return availableQuestions
   }
 
   public insertQuestion(question, element) {
